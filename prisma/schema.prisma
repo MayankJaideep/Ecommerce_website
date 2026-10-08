@@ -1,0 +1,61 @@
+// SQLite for local development. For production switch provider to "postgresql"
+// and point DATABASE_URL at your Postgres instance (Neon, Supabase, RDS...).
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Order {
+  id        String @id @default(cuid())
+  orderCode String @unique
+
+  customerName String
+  phone        String
+  email        String?
+  addressLine1 String
+  addressLine2 String?
+  landmark     String?
+  city         String
+  state        String
+  pincode      String
+  customerNote String?
+
+  productSlug String
+  quantity    Int
+  unitPrice   Int // rupees
+  subtotal    Int
+  shippingFee Int
+  total       Int
+
+  upiTxnId              String?
+  paymentScreenshotKey  String
+  paymentScreenshotType String
+
+  // PENDING_PAYMENT | PAYMENT_VERIFICATION | CONFIRMED | PREPARING | SHIPPED | DELIVERED | CANCELLED
+  status       String  @default("PAYMENT_VERIFICATION")
+  trackingInfo String?
+  adminNote    String?
+
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+  events    OrderEvent[]
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([phone])
+}
+
+model OrderEvent {
+  id        String   @id @default(cuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  status    String
+  note      String?
+  createdAt DateTime @default(now())
+
+  @@index([orderId])
+}
