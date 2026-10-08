@@ -19,7 +19,7 @@ export function Footer() {
             <li>Dispatched within {delivery.dispatchWithin}</li>
             <li>Karnataka: {delivery.karnatakaEta}</li>
             <li>Rest of India: {delivery.restOfIndiaEta}</li>
-            <li>Free delivery on {delivery.freeShippingMinQty}+ packets</li>
+            <li>Flat ₹{delivery.fee} delivery across India</li>
           </ul>
         </div>
         <div className="text-sm">

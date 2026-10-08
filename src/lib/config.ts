@@ -7,15 +7,14 @@ export const brand = {
   kannadaName: "ಹುರಳಿ ಕಟ್ಟು",
   upiId: process.env.NEXT_PUBLIC_UPI_ID || "pallavijaideep28-1@okhdfcbank",
   upiPayeeName: process.env.NEXT_PUBLIC_UPI_PAYEE_NAME || "Amma's Hurlikattu",
-  whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919999999999",
+  whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919902611171",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   fromCity: "Sakaleshpur, Karnataka",
 };
 
 export const delivery = {
-  // Flat delivery fee, waived when the order reaches freeShippingMinQty packets.
+  // Flat delivery fee charged on every order.
   fee: 60,
-  freeShippingMinQty: 2,
   dispatchWithin: "1–2 days",
   karnatakaEta: "2–4 days",
   restOfIndiaEta: "4–7 days",

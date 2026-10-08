@@ -52,17 +52,6 @@ export default function CartPage() {
         </OrderSummary>
       </div>
 
-      {line.quantity < delivery.freeShippingMinQty && (
-        <button
-          type="button"
-          onClick={() => setQuantity(product.slug, delivery.freeShippingMinQty)}
-          className="mt-4 w-full rounded-2xl border-2 border-dashed border-tomato/40 bg-tomato/5 px-4 py-3 text-left text-sm"
-        >
-          <b className="text-tomato">Tip:</b> Add one more packet for {formatINR(product.price)} and
-          delivery becomes <b>free</b>. Tap to add →
-        </button>
-      )}
-
       <p className="mt-4 flex items-center gap-2 text-sm text-coffee/80">
         <TruckIcon className="h-5 w-5 text-tomato" /> Dispatched within {delivery.dispatchWithin}.
       </p>

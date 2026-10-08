@@ -8,10 +8,10 @@ export function AnnouncementBar() {
         <span aria-hidden className="text-tomato">✦</span>
         <span>
           <span className="hidden sm:inline">
-            Fresh batch roasting this week · Free delivery on {delivery.freeShippingMinQty}+ packets
+            Fresh batch roasting this week · ₹{delivery.fee} delivery
           </span>
           <span className="sm:hidden">
-            Fresh batch · Free delivery on {delivery.freeShippingMinQty}+
+            Fresh batch · ₹{delivery.fee} delivery
           </span>
         </span>
         <span aria-hidden className="hidden text-tomato sm:inline">✦</span>

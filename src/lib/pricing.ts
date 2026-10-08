@@ -6,7 +6,7 @@ export type Totals = { subtotal: number; shippingFee: number; total: number };
 // the amount sent by the browser is never trusted.
 export function computeTotals(unitPrice: number, quantity: number): Totals {
   const subtotal = unitPrice * quantity;
-  const shippingFee = quantity >= delivery.freeShippingMinQty ? 0 : delivery.fee;
+  const shippingFee = delivery.fee;
   return { subtotal, shippingFee, total: subtotal + shippingFee };
 }
 

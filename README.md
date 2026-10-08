@@ -21,7 +21,7 @@ The admin panel is at `/admin`. Log in with `ADMIN_PASSWORD`.
 | --- | --- |
 | `/` | Home: hero, trust badges, brand story, how ordering works, FAQ |
 | `/shop` | Product page: gallery, quantity, live total, Buy Now, ingredients, preparation, delivery info |
-| `/cart` | Cart, with a nudge to add a packet for free delivery |
+| `/cart` | Cart with a live order summary |
 | `/checkout` | One page in 3 steps: delivery details → UPI QR (amount filled in) → screenshot upload → Place Order |
 | `/order/[code]` | Order success page and live status timeline (shows no phone number or address) |
 | `/track` | Look up an order by its ID |

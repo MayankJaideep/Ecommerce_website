@@ -16,7 +16,6 @@ export function BuyBox({ product }: { product: Product }) {
   const { addItem, setQuantity } = useCart();
   const router = useRouter();
   const totals = computeTotals(product.price, qty);
-  const needed = delivery.freeShippingMinQty - qty;
 
   function addToCart() {
     addItem(product.slug, qty);
@@ -47,19 +46,12 @@ export function BuyBox({ product }: { product: Product }) {
         </div>
         <div className="mt-1 flex justify-between">
           <span>Delivery</span>
-          <span className={totals.shippingFee === 0 ? "font-semibold text-tomato" : ""}>
-            {totals.shippingFee === 0 ? "FREE" : formatINR(totals.shippingFee)}
-          </span>
+          <span className="font-semibold text-tomato">{formatINR(totals.shippingFee)}</span>
         </div>
         <div className="mt-2 flex justify-between border-t border-coffee/10 pt-2 text-base font-bold">
           <span>Total</span>
           <span>{formatINR(totals.total)}</span>
         </div>
-        {needed > 0 && (
-          <p className="mt-2 text-xs text-coffee/80">
-            Add {needed} more packet{needed > 1 ? "s" : ""} for <b>free delivery</b>.
-          </p>
-        )}
       </div>
 
       <div className="mt-5 grid gap-3">

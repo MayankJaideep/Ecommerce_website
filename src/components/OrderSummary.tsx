@@ -1,7 +1,6 @@
 import type { Product } from "@/lib/product";
 import type { Totals } from "@/lib/pricing";
 import { formatINR } from "@/lib/pricing";
-import { delivery } from "@/lib/config";
 import { Photo } from "./Photo";
 
 export function OrderSummary({
@@ -51,15 +50,8 @@ export function OrderSummary({
         </div>
         <div className="flex justify-between">
           <dt>Delivery</dt>
-          <dd className={totals.shippingFee === 0 ? "font-semibold text-tomato" : ""}>
-            {totals.shippingFee === 0 ? "FREE" : formatINR(totals.shippingFee)}
-          </dd>
+          <dd className="font-semibold text-tomato">{formatINR(totals.shippingFee)}</dd>
         </div>
-        {totals.shippingFee > 0 && (
-          <p className="text-xs text-coffee/85">
-            Free delivery on {delivery.freeShippingMinQty}+ packets
-          </p>
-        )}
         <div className="flex justify-between border-t border-coffee/10 pt-2 text-lg font-bold">
           <dt>Total</dt>
           <dd>{formatINR(totals.total)}</dd>
